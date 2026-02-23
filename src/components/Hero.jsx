@@ -207,7 +207,7 @@ const Hero = () => {
                             </button>
                         </Link>
                         <motion.a
-                            href="../../public/anuwat-thannop-cv.pdf"
+                            href="./anuwat-thannop-cv.pdf"
                             whileHover={{ scale: 1.04, y: -2 }}
                             className="flex items-center gap-2 px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-300"
                             style={{
