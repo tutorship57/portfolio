@@ -145,7 +145,7 @@ const Hero = () => {
                     <div className="relative">
                         <div className="absolute inset-0 rounded-4xl bg-gradient-to-tr from-[#D4A373]/30 to-[#F5F0E6]/50 blur-2xl transform scale-105" />
                         <img
-                            src="../../public/tutor2.png"
+                            src="./tutor2.png"
                             className="relative z-10 rounded-4xl object-cover w-full h-auto shadow-[0_10px_40px_rgba(62,39,35,0.1)] border border-cafe-mocha/10"
                             alt="Anuwat Thannop"
                         />
