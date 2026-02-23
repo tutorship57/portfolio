@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #c9a84c;
+  --color-gold-light: #f0d080;
+  --color-gold-dark: #8b6914;
+  --color-purple-deep: #0d0415;
+  --color-purple-mid: #1a0a2e;
+  --color-purple-accent: #6d28d9;
+  --color-pink-neon: #e040fb;
+  --color-blue-neon: #00e5ff;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #c9a84c33, 0 0 20px #c9a84c22, 0 0 40px #c9a84c11;
+  }
+
+  to {
+    box-shadow: 0 0 20px #c9a84c88, 0 0 40px #c9a84c55, 0 0 80px #c9a84c33;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0d0415;
+    color: #f5f0e8;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  [role="button"] {
+    cursor: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0d0415;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #c9a84c, #6d28d9);
+    border-radius: 3px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f0d080, #c9a84c, #8b6914);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-neon {
+    background: linear-gradient(135deg, #e040fb, #00e5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+  }
+
+  .gold-border {
+    border-image: linear-gradient(135deg, #f0d080, #c9a84c, #8b6914) 1;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg,
+        #c9a84c 0%,
+        #f0d080 25%,
+        #ffffff 50%,
+        #f0d080 75%,
+        #c9a84c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 2.5s linear infinite;
+  }
+
+  .btn-gold {
+    background: linear-gradient(135deg, #c9a84c, #f0d080, #c9a84c);
+    background-size: 200% auto;
+    color: #0d0415;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-gold:hover {
+    background-position: right center;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.5);
+  }
+
+  .btn-outline-gold {
+    border: 1px solid #c9a84c;
+    color: #c9a84c;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .btn-outline-gold:hover {
+    background: rgba(201, 168, 76, 0.1);
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .neon-line {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9a84c, #e040fb, #c9a84c, transparent);
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #c9a84c;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #a855f7, #6d28d9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.3), 0 0 60px rgba(201, 168, 76, 0.1);
+  }
+}
